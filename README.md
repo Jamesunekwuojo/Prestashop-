@@ -146,25 +146,19 @@ sudo docker exec -it prestashop-container rm -rf /var/www/html/install
 
 
 1. **EC2 Instance Dashboard** – Showing the running instance.
+2. **RDS Database Configuration** – Highlighting the database endpoint and security group.
+3. **Dockerfile Content** – Showing the configuration for the PrestaShop application.
+4. **PrestaShop Installation Wizard** – Showing the RDS database configuration step.
 
 <img src= "./Screenshot from 2025-03-01 19-27-21.png" width="500">
 
+<img src= "./Screenshot from 2025-03-01 19-37-29.png" width="500">
 
-2. **RDS Database Configuration** – Highlighting the database endpoint and security group.
-   
-<img src= "./Screenshot from 2025-03-01 19-37-29.png">
+<img src= "./Screenshot from 2025-03-01 19-38-01.png" width="500">
 
+<img src= "./Screenshot from 2025-03-01 19-52-06.png" width="500">
 
-3. **Dockerfile Content** – Showing the configuration for the PrestaShop application.
-
-<img src= "./Screenshot from 2025-03-01 19-38-01.png">
-
-4. **PrestaShop Installation Wizard** – Showing the RDS database configuration step.
-
-<img src= "./Screenshot from 2025-03-01 19-52-06.png">
-
-
-<img src="./Screenshot from 2025-03-01 19-52-48.png" size="20%">
+<img src="./Screenshot from 2025-03-01 19-52-48.png" width="500">
 
 
 ## Conclusion
