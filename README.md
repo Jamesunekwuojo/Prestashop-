@@ -53,3 +53,103 @@ This document provides a step-by-step guide for deploying PrestaShop on AWS usin
 1. Connected to the instance via SSH:
    ```bash
    ssh -i /path/to/prestashop-key.pem ec2-user@<public-ip-of-instance>
+
+
+
+2. Step 4: Update the System
+
+```bash
+sudo yum update -y
+```
+
+## Step 4: Install Docker and Dependencies
+
+```bash
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+2. Create and Configure the Dockerfile
+
+Create a `Dockerfile` with the following content:
+
+```Dockerfile
+FROM amazonlinux:2023
+RUN yum install -y php php-mysqlnd php-gd php-curl php-zip php-mbstring
+RUN yum install -y httpd
+RUN yum clean all
+COPY . /var/www/html
+EXPOSE 80
+CMD ["httpd", "-D", "FOREGROUND"]
+```
+
+Build the Docker image:
+
+```bash
+sudo docker build -t prestashop-app .
+```
+
+Run the Docker container:
+
+```bash
+sudo docker run -d -p 80:80 --name prestashop-container prestashop-app
+```
+
+## Step 5: Create an RDS Database
+
+1. Navigate to the AWS RDS Console and click **Create Database**.
+2. Select **MySQL** as the database engine.
+3. Configure the database settings:
+   - **DB Instance Identifier:** `prestashop-db`
+   - **Master Username:** `admin`
+   - **Master Password:** `securepassword`
+   - **DB Instance Class:** `db.t2.micro` (free tier eligible)
+   - **Storage:** `20GB` General Purpose SSD
+4. Configure connectivity:
+   - Connect the RDS instance to the same VPC as the EC2 instance.
+   - Make the RDS instance publicly accessible.
+   - Create a security group allowing inbound traffic on port `3306` from the EC2 instance’s security group.
+5. Create the database.
+
+## Step 6: Connect PrestaShop to the RDS Database
+
+1. Access the PrestaShop installer via `http://<public-ip-of-instance>`.
+2. Follow the installation wizard:
+   - Select language and agree to terms.
+   - Enter the RDS database details:
+     - **Database server:** `<RDS-endpoint>`
+     - **Database name:** `prestashop`
+     - **Database user:** `admin`
+     - **Database password:** `securepassword`
+   - Configure store details (admin email, password, etc.).
+3. Complete the installation and delete the install folder for security:
+
+```bash
+sudo docker exec -it prestashop-container rm -rf /var/www/html/install
+```
+
+## Step 7: Monitor and Maintain
+
+- Enable **CloudWatch Logs** to monitor the EC2 instance and RDS database.
+- Set up **AWS Backup** for regular RDS database backups.
+
+## Configuration Decisions
+
+- **Instance Type:** Used `t2.micro` to stay within the Free Tier.
+- **Security Group:** Opened only necessary ports (`22`, `80`, `443`) for security.
+- **Database:** Used **Amazon RDS (MySQL)** for managed database services.
+- **Docker:** Containerized the application for easier deployment and scalability.
+
+## Screenshots
+
+1. **EC2 Instance Dashboard** – Showing the running instance.
+2. **RDS Database Configuration** – Highlighting the database endpoint and security group.
+3. **Dockerfile Content** – Showing the configuration for the PrestaShop application.
+4. **PrestaShop Installation Wizard** – Showing the RDS database configuration step.
+5. **CloudWatch Logs** – Showing the monitoring setup for the EC2 instance and RDS database.
+
+## Conclusion
+
+This deployment successfully set up **PrestaShop on AWS** using **Docker** and **RDS**. The use of **Free Tier** resources ensured cost-effectiveness, while Docker simplified the deployment process.
+
+For any questions or further assistance, feel free to reach out!
