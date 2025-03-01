@@ -127,6 +127,8 @@ sudo docker run -d -p 80:80 --name prestashop-container prestashop-app
 ```bash
 sudo docker exec -it prestashop-container rm -rf /var/www/html/install
 ```
+- Link to live installed Prestashop on my instance:
+[http://13.48.25.108/]
 
 ## Step 7: Monitor and Maintain
 
