@@ -147,7 +147,7 @@ sudo docker exec -it prestashop-container rm -rf /var/www/html/install
 
 1. **EC2 Instance Dashboard** – Showing the running instance.
 
-<img src= "./Screenshot from 2025-03-01 19-27-21.png">
+<img src= "./Screenshot from 2025-03-01 19-27-21.png" width="300">
 
 
 2. **RDS Database Configuration** – Highlighting the database endpoint and security group.
