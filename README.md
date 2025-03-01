@@ -151,7 +151,7 @@ sudo docker exec -it prestashop-container rm -rf /var/www/html/install
 5. **CloudWatch Logs** – Showing the monitoring setup for the EC2 instance and RDS database.
 
 
-![EC2 Instance Dashboard](screenshots/ec2-dashboard.png)
+![EC2 Instance Dashboard](Screenshot from 2025-03-01 19-27-21.png)
 
 ![RDS Database Configuration](screenshots/rds-config.png)
 
