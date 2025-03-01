@@ -150,6 +150,18 @@ sudo docker exec -it prestashop-container rm -rf /var/www/html/install
 4. **PrestaShop Installation Wizard** – Showing the RDS database configuration step.
 5. **CloudWatch Logs** – Showing the monitoring setup for the EC2 instance and RDS database.
 
+
+![EC2 Instance Dashboard](screenshots/ec2-dashboard.png)
+
+![RDS Database Configuration](screenshots/rds-config.png)
+
+![Dockerfile Content](screenshots/dockerfile.png)
+
+![PrestaShop Installation Wizard](screenshots/prestashop-install.png)
+
+![CloudWatch Logs](screenshots/cloudwatch-logs.png)
+
+
 ## Conclusion
 
 This deployment successfully set up **PrestaShop on AWS** using **Docker** and **RDS**. The use of **Free Tier** resources ensured cost-effectiveness, while Docker simplified the deployment process.
