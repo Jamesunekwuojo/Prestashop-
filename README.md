@@ -153,6 +153,8 @@ sudo docker exec -it prestashop-container rm -rf /var/www/html/install
 
 ![EC2 Instance Dashboard](Screenshot from 2025-03-01 19-27-21.png)
 
+<img src= "./Screenshot from 2025-03-01 19-27-21.png">
+
 ![RDS Database Configuration](screenshots/rds-config.png)
 
 ![Dockerfile Content](screenshots/dockerfile.png)
