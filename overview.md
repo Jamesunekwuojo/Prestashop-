@@ -55,9 +55,9 @@ To replicate this project, follow the step-by-step guide in the [README.md](./RE
 
 ## 📧 **Contact**  
 For questions or collaboration opportunities, feel free to reach out:  
-- **Email**: [Your Email]  
-- **LinkedIn**: [Your LinkedIn Profile]  
-- **Portfolio**: [Your Portfolio Website]  
+- **Email**: [godswillemmanueljames@gmail.com]  
+- **LinkedIn**: [https://www.linkedin.com/in/unekwuojo-james-b2511225b/]  
+- **Portfolio**: [https://portfolio-u-gray.vercel.app/]  
 
 ---
 
